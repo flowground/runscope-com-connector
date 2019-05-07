@@ -1,0 +1,55 @@
+{
+    "type": "object",
+    "properties": {
+        "bucketKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "created_at": {
+                    "description": "The date the test was created in seconds (Unix time stamp format).",
+                    "type": "integer"
+                },
+                "created_by": {
+                    "properties": {
+                        "email": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "default_environment_id": {
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The description for the test.",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "last_run": {
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The name for the test.",
+                    "type": "string"
+                },
+                "trigger_url": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "type": "object"
+        }
+    }
+}

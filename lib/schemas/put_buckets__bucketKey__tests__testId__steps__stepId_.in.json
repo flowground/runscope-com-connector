@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "bucketKey": {
+            "required": true,
+            "type": "string"
+        },
+        "testId": {
+            "required": true,
+            "type": "string"
+        },
+        "stepId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "step_type": {
+                    "description": "Type of test step -- request, pause, condition, ghost-inspector, or subtest.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

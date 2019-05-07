@@ -1,0 +1,132 @@
+{
+    "type": "object",
+    "properties": {
+        "bucketKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "auth": {
+                    "type": "string"
+                },
+                "client_certificate": {
+                    "type": "string"
+                },
+                "emails": {
+                    "type": "object"
+                },
+                "exported_at": {
+                    "type": "integer"
+                },
+                "headers": {
+                    "type": "object"
+                },
+                "id": {
+                    "description": "The unique identifier for this environment.",
+                    "type": "string"
+                },
+                "initial_script_hash": {
+                    "type": "string"
+                },
+                "initial_variables": {
+                    "type": "object"
+                },
+                "integrations": {
+                    "description": "The list of integrations for this environment.",
+                    "items": {
+                        "properties": {
+                            "description": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "uuid": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Name of this environment.",
+                    "type": "string"
+                },
+                "parent_environment_id": {
+                    "type": "string"
+                },
+                "preserve_cookies": {
+                    "type": "boolean"
+                },
+                "regions": {
+                    "description": "An array of the region codes that this environment is using.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "remote_agents": {
+                    "items": {
+                        "properties": {
+                            "agent_id": {
+                                "description": "The unique identifier for this agent.",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "The name of the agent set in the configuration file or with the command line flag.",
+                                "type": "string"
+                            },
+                            "version": {
+                                "description": "The version for this agent.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "retry_on_failure": {
+                    "type": "boolean"
+                },
+                "script": {
+                    "description": "",
+                    "type": "string"
+                },
+                "script_library": {
+                    "description": "The list of ids for scripts, part of the script libraries, being used for this environment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "stop_on_failure": {
+                    "description": "Stop executing the test after the first failed step.",
+                    "type": "boolean"
+                },
+                "test_id": {
+                    "description": "The unique identifier for this test.",
+                    "type": "string"
+                },
+                "verify_ssl": {
+                    "description": "Validate all SSL certificates on any HTTPS connections.",
+                    "type": "boolean"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "webhooks": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "type": "object"
+        }
+    }
+}

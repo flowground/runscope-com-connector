@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "bucketKey": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

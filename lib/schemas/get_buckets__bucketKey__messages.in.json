@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "bucketKey": {
+            "required": true,
+            "type": "string"
+        },
+        "count": {
+            "type": "integer"
+        },
+        "since": {
+            "type": "integer"
+        },
+        "before": {
+            "type": "integer"
+        }
+    }
+}

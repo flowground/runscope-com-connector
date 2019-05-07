@@ -1,0 +1,519 @@
+{
+    "title": "Runscope",
+    "description": "Manage Runscope programmatically.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/runscope.com/1.0.0/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.runscope.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "runscope_auth": {
+                "label": "runscope_auth",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://www.runscope.com/signin/oauth/authorize",
+            "token_uri": "https://www.runscope.com/signin/oauth/access_token"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_account": {
+            "main": "./lib/actions/get_account.js",
+            "title": "Account Resource",
+            "description": "Information about the authorized account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_account.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets": {
+            "main": "./lib/actions/get_buckets.js",
+            "title": "Returns a list of buckets.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_buckets": {
+            "main": "./lib/actions/post_buckets.js",
+            "title": "Create a new bucket",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_buckets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_buckets__bucketKey_": {
+            "main": "./lib/actions/delete_buckets__bucketKey_.js",
+            "title": "Delete a single bucket resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_buckets__bucketKey_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets__bucketKey_": {
+            "main": "./lib/actions/get_buckets__bucketKey_.js",
+            "title": "Returns a single bucket resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets__bucketKey_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets__bucketKey__environments": {
+            "main": "./lib/actions/get_buckets__bucketKey__environments.js",
+            "title": "Returns list of shared environments for a specified bucket.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets__bucketKey__environments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_buckets__bucketKey__environments": {
+            "main": "./lib/actions/post_buckets__bucketKey__environments.js",
+            "title": "Create new shared environment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_buckets__bucketKey__environments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_buckets__bucketKey__environments__environmentId_": {
+            "main": "./lib/actions/put_buckets__bucketKey__environments__environmentId_.js",
+            "title": "Update the details of a shared environment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_buckets__bucketKey__environments__environmentId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets__bucketKey__errors": {
+            "main": "./lib/actions/get_buckets__bucketKey__errors.js",
+            "title": "Retrieve a list of error messages in a bucket",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets__bucketKey__errors.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_buckets__bucketKey__messages": {
+            "main": "./lib/actions/delete_buckets__bucketKey__messages.js",
+            "title": "Clear a bucket (remove all messages).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_buckets__bucketKey__messages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets__bucketKey__messages": {
+            "main": "./lib/actions/get_buckets__bucketKey__messages.js",
+            "title": "Retrieve a list of messages in a bucket",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets__bucketKey__messages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_buckets__bucketKey__messages": {
+            "main": "./lib/actions/post_buckets__bucketKey__messages.js",
+            "title": "Create a message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_buckets__bucketKey__messages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets__bucketKey__messages__messageId_": {
+            "main": "./lib/actions/get_buckets__bucketKey__messages__messageId_.js",
+            "title": "Retrieve the details for a single message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets__bucketKey__messages__messageId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets__bucketKey__tests": {
+            "main": "./lib/actions/get_buckets__bucketKey__tests.js",
+            "title": "Returns a list of tests.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets__bucketKey__tests.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_buckets__bucketKey__tests": {
+            "main": "./lib/actions/post_buckets__bucketKey__tests.js",
+            "title": "Create a test.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_buckets__bucketKey__tests.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_buckets__bucketKey__tests__testId_": {
+            "main": "./lib/actions/delete_buckets__bucketKey__tests__testId_.js",
+            "title": "Delete a test, including all steps, schedules, test-specific environments and results.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_buckets__bucketKey__tests__testId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets__bucketKey__tests__testId_": {
+            "main": "./lib/actions/get_buckets__bucketKey__tests__testId_.js",
+            "title": "Retrieve the details of a given test by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets__bucketKey__tests__testId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_buckets__bucketKey__tests__testId_": {
+            "main": "./lib/actions/put_buckets__bucketKey__tests__testId_.js",
+            "title": "Modify a test's name, description, default environment and its steps. To modify other individual properties of a test, make requests to the steps, environments, and schedules subresources of the test.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_buckets__bucketKey__tests__testId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets__bucketKey__tests__testId__environments": {
+            "main": "./lib/actions/get_buckets__bucketKey__tests__testId__environments.js",
+            "title": "Return details of the test's environments (only those that belong to the specified test)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets__bucketKey__tests__testId__environments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_buckets__bucketKey__tests__testId__environments": {
+            "main": "./lib/actions/post_buckets__bucketKey__tests__testId__environments.js",
+            "title": "Create new test environment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_buckets__bucketKey__tests__testId__environments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_buckets__bucketKey__tests__testId__environments__environmentId_": {
+            "main": "./lib/actions/put_buckets__bucketKey__tests__testId__environments__environmentId_.js",
+            "title": "Update the details of a test environment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_buckets__bucketKey__tests__testId__environments__environmentId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets__bucketKey__tests__testId__metrics": {
+            "main": "./lib/actions/get_buckets__bucketKey__tests__testId__metrics.js",
+            "title": "Return details of the test metrics for the specified timeframe.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets__bucketKey__tests__testId__metrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_buckets__bucketKey__tests__testId__steps": {
+            "main": "./lib/actions/get_buckets__bucketKey__tests__testId__steps.js",
+            "title": "List test steps for a test.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_buckets__bucketKey__tests__testId__steps.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_buckets__bucketKey__tests__testId__steps": {
+            "main": "./lib/actions/post_buckets__bucketKey__tests__testId__steps.js",
+            "title": "Add new test step.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_buckets__bucketKey__tests__testId__steps.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_buckets__bucketKey__tests__testId__steps__stepId_": {
+            "main": "./lib/actions/delete_buckets__bucketKey__tests__testId__steps__stepId_.js",
+            "title": "Delete a step from a test.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_buckets__bucketKey__tests__testId__steps__stepId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_buckets__bucketKey__tests__testId__steps__stepId_": {
+            "main": "./lib/actions/put_buckets__bucketKey__tests__testId__steps__stepId_.js",
+            "title": "Update the details of a single test step.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_buckets__bucketKey__tests__testId__steps__stepId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_teams__teamId__agents": {
+            "main": "./lib/actions/get_teams__teamId__agents.js",
+            "title": "Team agents list",
+            "description": "List currently connected agents associated with a given team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_teams__teamId__agents.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_teams__teamId__integrations": {
+            "main": "./lib/actions/get_teams__teamId__integrations.js",
+            "title": "Team integrations list",
+            "description": "Returns a list of integrations configured for the team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_teams__teamId__integrations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_teams__teamId__people": {
+            "main": "./lib/actions/get_teams__teamId__people.js",
+            "title": "Teams Resource",
+            "description": "List people and integrations associated with a given team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_teams__teamId__people.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

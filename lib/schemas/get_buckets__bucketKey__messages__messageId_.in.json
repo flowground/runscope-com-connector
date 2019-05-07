@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "bucketKey": {
+            "required": true,
+            "type": "string"
+        },
+        "messageId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

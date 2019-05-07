@@ -1,0 +1,83 @@
+{
+    "type": "object",
+    "properties": {
+        "bucketKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "request": {
+                    "properties": {
+                        "body": {
+                            "description": "HTTP request body (most commonly used for POST and PUT requests). If the\nrequest body contains binary data that cannot be included directly in the \nJSON, encode the content with Base64 and include the body_encoding attribute accordingly.\n",
+                            "type": "string"
+                        },
+                        "body_encoding": {
+                            "description": "If the request body was encoded with Base64, this field should be present and set to \n\"base64\". If not specified, defaults to \"plaintext\"\n",
+                            "type": "string"
+                        },
+                        "form": {
+                            "description": "JSON object of set of form fields included in a POST request. \nValues can either be represented as a string or as an array of strings.\n",
+                            "type": "string"
+                        },
+                        "headers": {
+                            "description": "JSON object of header keys and values -- with values as a string or an array of strings.",
+                            "type": "string"
+                        },
+                        "method": {
+                            "description": "HTTP method name (GET, POST, PUT, HEAD, OPTIONS, PATCH, DELETE, etc.)",
+                            "type": "string"
+                        },
+                        "timestamp": {
+                            "description": "Unix timestamp indicating when the request was made.",
+                            "format": "float",
+                            "type": "number"
+                        },
+                        "url": {
+                            "description": "Full URL of the request, including URL querystring parameters.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "response": {
+                    "properties": {
+                        "body": {
+                            "description": "HTTP response body. If the response body contains binary data that cannot be\nincluded directly in the JSON, you should encode the content with Base64.\n",
+                            "type": "string"
+                        },
+                        "body_encoding": {
+                            "description": "If the request body was encoded with Base64, this field should be present and set to \n\"base64\". If not specified, defaults to \"plaintext\"\n",
+                            "type": "string"
+                        },
+                        "headers": {
+                            "description": "JSON object of header keys and values -- with values as a string or an array of strings.",
+                            "type": "string"
+                        },
+                        "reason": {
+                            "description": "Textual description of HTTP status code. This will be set automatically if not \nprovided in the API call. For example, if the status code is 404, this will be \nset to \"Not Found\" unless you explicitly specify a different reason.\n",
+                            "type": "string"
+                        },
+                        "response_time": {
+                            "description": "Length of time it took to receive the response, in seconds.",
+                            "format": "float",
+                            "type": "number"
+                        },
+                        "status": {
+                            "description": "HTTP status code returned in the response.",
+                            "type": "integer"
+                        },
+                        "timestamp": {
+                            "description": "Unix timestamp indicating when the request was made.",
+                            "format": "float",
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
